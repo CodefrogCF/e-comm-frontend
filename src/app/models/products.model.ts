@@ -3,7 +3,11 @@ export interface Product {
     name: string;
     image: string;
     price: number;
-    stock?: number;
+    stock: Stock;
     short_description: string;
     product_description: string;
+}
+
+export interface Stock {
+    quantity: number;
 }
