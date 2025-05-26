@@ -1,5 +1,5 @@
 import { Component, inject, input } from '@angular/core';
-import { Product, Stock } from '../../../models/products.model';
+import { Product } from '../../../models/products.model';
 import { PrimaryButtonComponent } from '../../../components/primary-button/primary-button.component';
 import { CartService } from '../../../services/cart.service';
 
