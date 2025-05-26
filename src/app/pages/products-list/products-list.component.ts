@@ -52,7 +52,7 @@ export class ProductsListComponent {
     {
       id: 3,
       name: 'Mens Cotton Jacket',
-      image: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UL640_QL65_ML3_.jpg',
+      image: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg',
       price: 39.99,
       stock: 10,
       short_description: 'Slim-fitting, relaxed-fit denim with a drawstring waistband.',
