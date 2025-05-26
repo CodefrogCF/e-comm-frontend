@@ -3,8 +3,8 @@
     <button class="text-xl cursor-pointer" routerLink="/products">Back</button>
 </div>
 <div class="p-6 flex flex-col gap-4">
-    @for (item of cartService.cart(); track item.id) {
-        <app-cart-item [item]="item" />
+    @for (item of cartService.cart(); track $index) {
+        <app-cart-item [item]="item" [index]="$index" (remove)="cartService.removeFromCart($index)" />
     }
     <app-order-summary />
 </div>
