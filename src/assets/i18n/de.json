@@ -1,0 +1,14 @@
+{
+    "ADD_TO_CART": "In den Warenkorb legen",
+    "NO_PRICE": "Kein Preis verfügbar",
+    "OUT_OF_STOCK": "Nicht verfügbar",
+    "VIEW_PRODUCTS": "Produkte ansehen",
+    "PRODUCTS": "Produkte",
+    "CART": "Warenkorb ({{count}})",
+    "ORDER_SUMMARY": "Zusammenfassung",
+    "CHECKOUT": "Zur Kasse",
+    "BACK": "Zurück",
+    "TOTAL": "Gesamt",
+    "REMOVE": "Entfernen",
+    "WELCOME": "Willkommen im FrogStore"
+}

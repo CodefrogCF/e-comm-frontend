@@ -2,8 +2,8 @@
     <img class="max-h-[600px]" [src]="headerPicture" alt="Angular Ecommerce-App" />
 </div>
 <div class="flex justify-center mt-10">
-    <span class="text-2xl font-bold text-center">Welcome to our Angular Ecommerce-App</span>
+    <span class="text-2xl font-bold text-center">{{ 'WELCOME' | translate }}</span>
 </div>
 <div class="flex justify-center mt-10">
-    <app-primary-button [label]="'View Products'" routerLink="/products" />
+    <app-primary-button [label]="'VIEW_PRODUCTS' | translate" routerLink="/products"></app-primary-button>
 </div>

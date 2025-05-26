@@ -3,14 +3,27 @@
         <img [src]="product().image" class="w-[200px] h-[100px] object-contain">
     </div>
     <div class="flex flex-col mt-2">
-        <span class="text-md font-bold">{{ product().name }}</span>
-        <span class="text-sm">{{ product().price !== undefined ? ('$' + product().price.toFixed(2)) : 'No price' }}</span>
-        <app-primary-button [label]="product().stock ? 'Add to Cart' : 'Out of Stock'" class="mt-3" [disabled]="!product().stock" (btnClicked)="product().stock && cartService.addToCart(product())" />
-        <span class="text-sm text-gray-500 mt-2">{{ product().short_description }}</span>
+        <span class="text-md font-bold">
+            {{ product().name }}
+        </span>
+        <span class="text-sm">
+            {{ product().price !== undefined ? (product().price | dynamicCurrency: currency()) : ('NO_PRICE' | translate) }}
+        </span>
+        <app-primary-button
+            [label]="product().stock ? ('ADD_TO_CART' | translate) : ('OUT_OF_STOCK' | translate)" class="mt-3"
+            [disabled]="!product().stock" (btnClicked)="product().stock && cartService.addToCart(product())">
+        </app-primary-button>
+        <span class="text-sm text-gray-500 mt-2">
+            {{ product().short_description }}
+        </span>
 
-        <span class="absolute top-2 right-3 text-sm font-bold" [class]="product().stock ? 'text-green-500' : 'text-red-500'">
+        <span class="absolute top-2 right-3 text-sm font-bold"
+            [class]="product().stock ? 'text-green-500' : 'text-red-500'">
             @if (product().stock) {
-                {{ product().stock }} left } @else { Out of stock }
+                {{ product().stock }} left
+            } @else {
+                {{ 'OUT_OF_STOCK' | translate }}
+            }
         </span>
     </div>
 </div>

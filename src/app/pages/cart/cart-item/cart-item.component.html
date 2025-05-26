@@ -2,8 +2,8 @@
     <img [src]="item().image" class="w-[50px] h-[50px] object-contain">
     <div class="flex flex-col">
         <span class="text-md font-bold">{{ item().name }}</span>
-        <span class="text-sm">{{ '$' + item().price.toFixed(2) }}</span>
+        <span class="text-sm">{{ item().price | dynamicCurrency : currency() }}</span>
     </div>
     <div class="flex-1"></div>
-    <app-button label="Remove" (btnClicked)="remove.emit(index())" />
+    <app-button label="{{ 'REMOVE' | translate }}" (btnClicked)="remove.emit(index())"></app-button>
 </div>
