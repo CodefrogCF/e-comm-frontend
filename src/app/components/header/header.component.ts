@@ -3,16 +3,22 @@ import { PrimaryButtonComponent } from '../primary-button/primary-button.compone
 import { CartService } from '../../services/cart.service';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [PrimaryButtonComponent, RouterLink, TranslateModule],
+  imports: [PrimaryButtonComponent, SidebarComponent, RouterLink, TranslateModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
 
-cartService = inject(CartService);
+  cartService = inject(CartService);
 
+  menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
 }

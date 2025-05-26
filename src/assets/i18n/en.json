@@ -5,6 +5,7 @@
     "VIEW_PRODUCTS": "View Products",
     "PRODUCTS": "Products",
     "CART": "Cart ({{count}})",
+    "CART_OVERVIEW": "Cart",
     "ORDER_SUMMARY": "Order Summary",
     "CHECKOUT": "Checkout",
     "BACK": "Back",

@@ -5,6 +5,7 @@
     "VIEW_PRODUCTS": "Produkte ansehen",
     "PRODUCTS": "Produkte",
     "CART": "Warenkorb ({{count}})",
+    "CART_OVERVIEW": "Warenkorb",
     "ORDER_SUMMARY": "Zusammenfassung",
     "CHECKOUT": "Zur Kasse",
     "BACK": "Zurück",

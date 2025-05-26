@@ -1,4 +1,12 @@
 <div class="bg-slate-100 fixed top-0 w-full px-4 py-3 shadow-md flex items-center justify-between z-20">
     <button class="text-xl cursor-pointer" routerLink="/">CFrog-Store</button>
-    <app-primary-button [label]="'CART' | translate:{ count: cartService.cart().length }" routerLink="/cart" />
+    <div class="flex items-center gap-4">
+        <app-primary-button
+            [label]="'CART' | translate:{ count: cartService.cart().length }"
+            routerLink="/cart">
+        </app-primary-button>
+        <app-sidebar [isOpen]="menuOpen" (closed)="menuOpen = false"></app-sidebar>
+        <button (click)="toggleMenu()"
+            class="text-2xl">&#9776;</button>
+    </div>
 </div>
