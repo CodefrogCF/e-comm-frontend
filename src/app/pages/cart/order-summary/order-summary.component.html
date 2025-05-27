@@ -5,6 +5,6 @@
             <span class="text-lg">{{  'TOTAL' | translate }}</span>
             <span class="text-lg font-bold">{{ total() | dynamicCurrency:'USD' | async }}</span>
         </div>
-        <app-primary-button label="{{ 'CHECKOUT' | translate }}" class="mt-4" (click)="checkout()"></app-primary-button>
+        <app-primary-button label="{{ 'CHECKOUT' | translate }}" class="mt-4" [disabled]="cartService.cart().length === 0" (click)="checkout()"></app-primary-button>
     </div>
 </div>

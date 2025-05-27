@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { DynamicCurrencyPipe } from '../../../pipes/dynamic-currency.pipe';
 import { Router } from '@angular/router';
+import { OrderService, OrderPayload } from '../../../services/order.service';
 
 @Component({
   selector: 'app-order-summary',
@@ -13,6 +14,8 @@ import { Router } from '@angular/router';
   styleUrl: './order-summary.component.css'
 })
 export class OrderSummaryComponent {
+
+  orderService = inject(OrderService);
 
   cartService = inject(CartService);
   currency = signal('USD');
@@ -28,12 +31,32 @@ export class OrderSummaryComponent {
   })
 
   checkout() {
-    if (this.cartService.cart().length === 0) {
+    const cartItems = this.cartService.cart();
+    if (cartItems.length === 0) {
       alert('CART_IS_EMPTY');
       return;
     }
-    this.cartService.checkout();
-    this.router.navigate(['/order-confirmation']);
+    const order: OrderPayload = {
+      customer_name: 'John Doe', // TODO: Get from formular
+      customer_email: 'john.doe@example.com',
+      items: cartItems.map(item => ({
+        product: item.product.id,
+        quantity: item.quantity
+      }))
+    };
+
+    this.orderService.submitOrder(order).subscribe({
+      next: () => {
+        alert('ORDER_SUBMITTED');
+        this.cartService.cart.set([]); // Clear cart after checkout
+        this.router.navigate(['/order-confirmation']);
+      },
+      error: (err) => {
+        console.error('CHECKOUT_ERROR', err);
+        alert('CHECKOUT_ERROR');
+      }
+    });
+
   }
 
 }
