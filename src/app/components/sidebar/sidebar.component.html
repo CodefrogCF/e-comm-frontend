@@ -1,13 +1,13 @@
 
 <div class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-30 transform transition-transform duration-300"
     [class.translate-x-full]="!isOpen">
-    <div class="p-4 flex justify-between items-center border-b">
-        <h2 class="text-lg font-semibold">Menü</h2>
+    <div class="p-4 flex justify-between items-center border-b-gray-400 bg-lime-100 shadow-md">
+        <h2 class="text-lg font-semibold">{{ 'MENU' | translate }}</h2>
         <button (click)="close()" class="text-xl">&times;</button>
     </div>
 
     <div class="p-4">
-        <h3 class="mb-2 font-medium">Sprache wählen:</h3>
+        <h3 class="mb-2 font-medium">{{ 'CHOOSE_LANGUAGE' | translate }}</h3>
         <button class="block w-full text-left py-1" (click)="switchLang('de')">Deutsch</button>
         <button class="block w-full text-left py-1" (click)="switchLang('en')">English</button>
     </div>

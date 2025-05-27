@@ -1,13 +1,8 @@
-<!--<button class="bg-blue-500 hover:opacity-90 text-white font-bold w-full px-5 py-2 rounded-xl shadow-md cursor-pointer" (click)="btnClicked.emit()">
-    {{ label() }}
-</button>-->
-
-
 <button
     class="font-bold text-white w-full px-5 py-2 rounded-xl shadow-md"
-    [class.bg-blue-500]="!disabled()"
+    [class.bg-lime-500]="!disabled()"
     [class.bg-gray-400]="disabled()"
-    [class.hover\:opacity-90]="!disabled()"
+    [class.hover:bg-lime-400]="!disabled()"
     [class.cursor-pointer]="!disabled()"
     [class.cursor-not-allowed]="disabled()"
     [disabled]="disabled()"

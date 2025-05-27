@@ -1,9 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })

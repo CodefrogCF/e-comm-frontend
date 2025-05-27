@@ -11,5 +11,7 @@
     "BACK": "Zurück",
     "TOTAL": "Gesamt",
     "REMOVE": "Entfernen",
-    "WELCOME": "Willkommen im FrogStore"
+    "WELCOME": "Willkommen im FrogStore",
+    "MENU": "Menü",
+    "CHOOSE_LANGUAGE": "Sprache wählen"
 }
