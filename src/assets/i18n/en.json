@@ -15,5 +15,6 @@
     "MENU": "Menu",
     "CHOOSE_LANGUAGE": "Choose Language",
     "QUANTITY": "Quantity",
-    "ORDER_SUCCESSFUL": "Order Successful"
+    "ORDER_SUCCESSFUL": "Order Successful",
+    "LEFT": "in stock"
 }
