@@ -4,6 +4,7 @@ import { PrimaryButtonComponent } from '../../../components/primary-button/prima
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { DynamicCurrencyPipe } from '../../../pipes/dynamic-currency.pipe';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-summary',
@@ -16,6 +17,8 @@ export class OrderSummaryComponent {
   cartService = inject(CartService);
   currency = signal('USD');
 
+  router = inject(Router);
+
   total = computed(() => {
     let total = 0;
     for(const item of this.cartService.cart()) {
@@ -23,5 +26,14 @@ export class OrderSummaryComponent {
     }
     return total;
   })
+
+  checkout() {
+    if (this.cartService.cart().length === 0) {
+      alert('CART_IS_EMPTY');
+      return;
+    }
+    this.cartService.checkout();
+    this.router.navigate(['/order-confirmation']);
+  }
 
 }

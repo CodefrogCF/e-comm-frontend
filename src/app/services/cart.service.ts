@@ -71,6 +71,16 @@ export class CartService {
     return this.cart().reduce((total, item) => total + item.quantity, 0);
   }
 
+  checkout() {
+    if (this.cart().length === 0) {
+      alert('CART_IS_EMPTY');
+      return;
+    }
+
+    console.log('ORDER_PLACED', this.cart()); // TODO: Send to server
+
+    this.cart.set([]); // Clear cart after checkout
+  }
 
   constructor(private translate: TranslateService) { }
 }

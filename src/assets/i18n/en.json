@@ -14,5 +14,6 @@
     "WELCOME": "Welcome to FrogStore",
     "MENU": "Menu",
     "CHOOSE_LANGUAGE": "Choose Language",
-    "QUANTITY": "Quantity"
+    "QUANTITY": "Quantity",
+    "ORDER_SUCCESSFUL": "Order Successful"
 }
