@@ -4,9 +4,9 @@
         <span class="text-md font-bold">{{ item().product.name }}</span>
         <div class="flex items-center gap-2">
             <span class="text-sm text-gray-500 mt-1">{{ 'QUANTITY' | translate }}:</span>
-            <button type="button" class="cursor-pointer" (click)="decreaseQuantity()">-</button>
+            <button type="button" class="text-l cursor-pointer hover:text-red-500" (click)="decreaseQuantity()">-</button>
             <span class="text-sm text-gray-500 mt-1">{{ item().quantity }}</span>
-            <button type="button" class="cursor-pointer" (click)="increaseQuantity()">+</button></div>
+            <button type="button" class="text-l cursor-pointer hover:text-lime-500" (click)="increaseQuantity()">+</button></div>
         <span class="text-sm mt-1">{{ item().product.price | dynamicCurrency:'USD' | async }}</span>
     </div>
     <div class="flex-1"></div>
