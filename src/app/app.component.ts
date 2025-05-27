@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component'
+import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LocaleService } from './services/locale.service';
+import { CurrencyService } from './services/currency.service';
 
 @Component({
   selector: 'app-root',
@@ -13,16 +15,31 @@ import { FooterComponent } from './components/footer/footer.component';
 })
 export class AppComponent {
   title = 'ecomm'
-  currency = 'EUR';
+  currency = 'USD';
 
-  constructor(private translate: TranslateService) {
-    translate.setDefaultLang('de');
-    translate.use('de');
+  constructor(
+    private translate: TranslateService,
+    private localeService: LocaleService,
+    private currencyService: CurrencyService) {
+      const defaultLang = 'en';
+      translate.setDefaultLang(defaultLang);
+      translate.use(defaultLang);
+
+      const defaultCurrency = this.localeService.getCurrencyForLanguage(defaultLang);
+      this.currency = defaultCurrency;
+      this.currencyService.fetchRates('USD').subscribe();
+
+      this.translate.onLangChange.subscribe(event => {
+        const newCurrency = this.localeService.getCurrencyForLanguage(event.lang);
+        this.currency = newCurrency;
+        this.currencyService.fetchRates('USD').subscribe();
+      });
+
   }
 
   switchLanguage(language: string) {
     this.translate.use(language);
-    this.currency = language === 'en' ? 'USD' : 'EUR';
+    this.currency = language === 'de' ? 'EUR' : 'USD';
   }
 
 }

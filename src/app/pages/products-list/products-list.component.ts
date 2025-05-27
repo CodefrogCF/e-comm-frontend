@@ -14,7 +14,7 @@ import { NgFor } from '@angular/common';
 export class ProductsListComponent {
 
   products = signal<Product[]>([]);
-  currency = signal('EUR');
+  currency = signal('USD');
 
   async ngOnInit() {
 
@@ -22,7 +22,6 @@ export class ProductsListComponent {
     
     const data = await res.json();
 
-    // preis in zahl umwandeln
     const parsed = data.map((product: any) => ({
       ...product,
       price: parseFloat(product.price),

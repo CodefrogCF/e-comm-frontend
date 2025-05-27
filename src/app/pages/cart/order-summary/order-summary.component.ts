@@ -14,7 +14,7 @@ import { DynamicCurrencyPipe } from '../../../pipes/dynamic-currency.pipe';
 export class OrderSummaryComponent {
 
   cartService = inject(CartService);
-  currency = signal('EUR');
+  currency = signal('USD');
 
   total = computed(() => {
     let total = 0;

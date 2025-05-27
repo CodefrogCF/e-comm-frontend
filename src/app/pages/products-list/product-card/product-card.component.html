@@ -7,7 +7,7 @@
             {{ product().name }}
         </span>
         <span class="text-sm">
-            {{ product().price !== undefined ? (product().price | dynamicCurrency: currency()) : ('NO_PRICE' | translate) }}
+            {{ product().price | dynamicCurrency:'USD' | async }}
         </span>
         <app-primary-button
             [label]="product().stock ? ('ADD_TO_CART' | translate) : ('OUT_OF_STOCK' | translate)" class="mt-3"

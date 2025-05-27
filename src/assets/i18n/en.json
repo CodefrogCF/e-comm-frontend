@@ -13,5 +13,6 @@
     "REMOVE": "Remove",
     "WELCOME": "Welcome to FrogStore",
     "MENU": "Menu",
-    "CHOOSE_LANGUAGE": "Choose Language"
+    "CHOOSE_LANGUAGE": "Choose Language",
+    "QUANTITY": "Quantity"
 }

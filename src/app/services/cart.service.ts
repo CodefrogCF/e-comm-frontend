@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { Product } from '../models/products.model';
+import { TranslateService } from '@ngx-translate/core';
 
 export interface CartItem {
   product: Product;
@@ -10,6 +11,14 @@ export interface CartItem {
   providedIn: 'root'
 })
 export class CartService {
+
+  private showTranslatedAlert(key: string) {
+    this.translate.get(key).subscribe((translated: string) => {
+      alert(translated);
+    }
+  );
+}
+
 
   cart = signal<CartItem[]>([]);
 
@@ -22,7 +31,7 @@ export class CartService {
         item.quantity++;
         this.cart.set([...current]);
       } else {
-        alert('OUT_OF_STOCK');
+        this.showTranslatedAlert('OUT_OF_STOCK');
       }
     } else {
       this.cart.set([...current, { product, quantity: 1 }]);
@@ -41,7 +50,7 @@ export class CartService {
       } else  if (quantity <= item.product.stock) {
         item.quantity = quantity;
       } else {
-        alert('OUT_OF_STOCK');
+        this.showTranslatedAlert('OUT_OF_STOCK');
       }
       this.cart.set([...current]);
     }
@@ -58,5 +67,5 @@ export class CartService {
     return item ? item.quantity : 0;
   }
 
-  constructor() { }
+  constructor(private translate: TranslateService) { }
 }
