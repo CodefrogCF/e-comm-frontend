@@ -67,5 +67,10 @@ export class CartService {
     return item ? item.quantity : 0;
   }
 
+  getTotalQuantity(): number {
+    return this.cart().reduce((total, item) => total + item.quantity, 0);
+  }
+
+
   constructor(private translate: TranslateService) { }
 }

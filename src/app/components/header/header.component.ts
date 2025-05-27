@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, computed } from '@angular/core';
 import { PrimaryButtonComponent } from '../primary-button/primary-button.component';
 import { CartService } from '../../services/cart.service';
 import { RouterLink } from '@angular/router';
@@ -15,6 +15,10 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 export class HeaderComponent {
 
   cartService = inject(CartService);
+
+  totalQuantity = computed(() => 
+    this.cartService.cart().reduce((sum, item) => sum + item.quantity, 0)
+  );
 
   menuOpen = false;
 
