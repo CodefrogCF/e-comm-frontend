@@ -1,7 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { Product } from '../../models/products.model';
 import { ProductCardComponent } from '../../pages/products-list/product-card/product-card.component';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NgFor } from '@angular/common';
 
 @Component({
@@ -12,13 +12,26 @@ import { NgFor } from '@angular/common';
   styleUrl: './products-list.component.css'
 })
 export class ProductsListComponent {
+  private translate = inject(TranslateService);
 
   products = signal<Product[]>([]);
   currency = signal('USD');
 
-  async ngOnInit() {
+  constructor() {
+    this.translate.onLangChange.subscribe(() => {
+      this.ngOnInit();
+    })
+  }
 
-    const res = await fetch('http://127.0.0.1:8000/products/?format=json');
+  async ngOnInit() {
+    const lang = this.translate.currentLang || this.translate.getDefaultLang();
+    console.log(lang);
+
+    const res = await fetch('http://127.0.0.1:8000/products/?format=json', {
+      headers: {
+        'Accept-Language': lang
+      }
+    });
     
     const data = await res.json();
 

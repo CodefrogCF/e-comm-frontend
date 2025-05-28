@@ -14,7 +14,7 @@
             [disabled]="!product().stock" (btnClicked)="product().stock && cartService.addToCart(product())">
         </app-primary-button>
         <span class="text-sm text-gray-500 mt-2">
-            {{ product().short_description }}
+            {{ product().short_description_translated }}
         </span>
 
         <span class="absolute top-2 right-3 text-sm font-bold"

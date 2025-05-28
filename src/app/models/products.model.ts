@@ -5,5 +5,6 @@ export interface Product {
     price: number;
     stock: number;
     short_description: string;
+    short_description_translated: string;
     product_description: string;
 }
