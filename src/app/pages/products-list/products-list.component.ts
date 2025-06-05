@@ -25,7 +25,6 @@ export class ProductsListComponent {
 
   async ngOnInit() {
     const lang = this.translate.currentLang || this.translate.getDefaultLang();
-    console.log(lang);
 
     const res = await fetch('http://127.0.0.1:8000/products/?format=json', {
       headers: {
