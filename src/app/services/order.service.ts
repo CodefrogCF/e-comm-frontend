@@ -19,7 +19,7 @@ export interface OrderPayload {
 
 export class OrderService {
 
-  private apiUrl = 'http://localhost:8000/orders/'; // ggf. anpassen
+  private apiUrl = 'https://api.codefrog.ch/orders/';
 
   constructor(private http: HttpClient) {}
 
