@@ -3,6 +3,7 @@ import { Product } from '../../../models/products.model';
 import { PrimaryButtonComponent } from '../../../components/primary-button/primary-button.component';
 import { CartService } from '../../../services/cart.service';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { CurrencyService } from '../../../services/currency.service';
 import { LocaleService } from '../../../services/locale.service';
@@ -12,7 +13,7 @@ import { DynamicCurrencyPipe } from '../../../pipes/dynamic-currency.pipe';
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [CommonModule, PrimaryButtonComponent, TranslateModule, DynamicCurrencyPipe],
+  imports: [CommonModule, PrimaryButtonComponent, TranslateModule, DynamicCurrencyPipe, RouterLink],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css'
 })
