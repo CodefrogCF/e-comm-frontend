@@ -1,6 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { Product } from '../models/products.model';
 import { TranslateService } from '@ngx-translate/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface CartItem {
   product: Product;
@@ -12,12 +13,21 @@ export interface CartItem {
 })
 export class CartService {
 
+  constructor(
+    private translate: TranslateService,
+    private snackBar: MatSnackBar
+  ) {}
+
   private showTranslatedAlert(key: string) {
     this.translate.get(key).subscribe((translated: string) => {
-      alert(translated);
-    }
-  );
-}
+      this.snackBar.open(translated, 'OK', {
+        duration: 3000,
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+        panelClass: ['snackbar']
+      });
+    });
+  }
 
 
   cart = signal<CartItem[]>([]);
@@ -30,6 +40,7 @@ export class CartService {
       if (item.quantity < product.stock) {
         item.quantity++;
         this.cart.set([...current]);
+        this.showTranslatedAlert('ITEM_ADDED');
       } else {
         this.showTranslatedAlert('OUT_OF_STOCK');
       }
@@ -83,5 +94,4 @@ export class CartService {
     this.cart.set([]); // Clear cart after checkout
   }
 
-  constructor(private translate: TranslateService) { }
 }
