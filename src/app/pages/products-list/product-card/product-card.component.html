@@ -1,9 +1,9 @@
 <div class="bg-white shadow-md border rounded-xl p-6 flex flex-col gap-6 relative">
     <div class="mx-auto">
-        <img [src]="product().image" routerLink="/product-page" class="w-[200px] h-[100px] object-contain">
+        <img [src]="product().image" routerLink="/product-page" class="w-[200px] h-[100px] object-contain cursor-pointer">
     </div>
     <div class="flex flex-col mt-2">
-        <span class="text-md font-bold">
+        <span routerLink="/product-page" class="text-md font-bold cursor-pointer">
             {{ product().name }}
         </span>
         <span class="text-sm">
