@@ -24,7 +24,7 @@ export class CartService {
         duration: 3000,
         horizontalPosition: 'center',
         verticalPosition: 'bottom',
-        panelClass: ['snackbar']
+        panelClass: ['snackbar-success']
       });
     });
   }
