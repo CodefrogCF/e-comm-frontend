@@ -47,7 +47,6 @@ export class OrderSummaryComponent {
 
     this.orderService.submitOrder(order).subscribe({
       next: () => {
-        alert('ORDER_SUBMITTED');
         this.cartService.cart.set([]); // Clear cart after checkout
         this.router.navigate(['/order-confirmation']);
       },
