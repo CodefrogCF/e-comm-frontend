@@ -6,6 +6,7 @@
     "PRODUCTS": "Produkte",
     "CART": "Warenkorb ({{count}})",
     "CART_OVERVIEW": "Warenkorb",
+    "ITEM_ADDED": "Artikel wurde zum Warenkorb hinzugefügt",
     "ORDER_SUMMARY": "Zusammenfassung",
     "CHECKOUT": "Zur Kasse",
     "BACK": "Zurück",

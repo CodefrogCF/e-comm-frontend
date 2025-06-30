@@ -6,6 +6,7 @@
     "PRODUCTS": "Products",
     "CART": "Cart ({{count}})",
     "CART_OVERVIEW": "Cart",
+    "ITEM_ADDED": "Item has been added to the cart",
     "ORDER_SUMMARY": "Order Summary",
     "CHECKOUT": "Checkout",
     "BACK": "Back",

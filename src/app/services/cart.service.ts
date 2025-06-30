@@ -34,6 +34,7 @@ export class CartService {
         this.showTranslatedAlert('OUT_OF_STOCK');
       }
     } else {
+      this.showTranslatedAlert('ITEM_ADDED');
       this.cart.set([...current, { product, quantity: 1 }]);
     }
   };
